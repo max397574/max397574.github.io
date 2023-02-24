@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
 ---
-# Omega
+# Omega-nvim
 This is a rewrite of my neovim config [omega-nvim](https://github.com/max397574/omega-nvim)
-This config should be usable as is for everyone.
+This config is usable and extendable for everyone.
 
 You can place your own plugins or disable plugins inside the `lua/omega/custom/modules` folder.
 You can overwrite lazy options inside the `lua/omega/custom/config/lazy.lua` file.
