@@ -2,14 +2,13 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://astro-paper.pages.dev/",
-    title: "AstroPaper",
-    description: "A minimal, responsive and SEO-friendly Astro blog theme.",
-    author: "Sat Naing",
-    profile: "https://satna.ing",
-    ogImage: "default-og.jpg",
+    url: "https://max397574.github.io",
+    title: "M397's Blog",
+    description: "My personal blog",
+    author: "M397",
+    profile: "",
+    ogImage: "",
     lang: "en",
-    timezone: "Asia/Bangkok",
     dir: "ltr",
   },
   posts: {
@@ -24,15 +23,15 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: true,
-      url: "https://github.com/satnaing/astro-paper/edit/main/",
+      url: "https://github.com/max397574/max397574.github.io/edit/main/",
     },
     search: "pagefind",
   },
   socials: [
-    { name: "github",   url: "https://github.com/satnaing/astro-paper" },
-    { name: "x",        url: "https://x.com/username" },
-    { name: "linkedin", url: "https://www.linkedin.com/in/username/" },
-    { name: "mail",     url: "mailto:yourmail@gmail.com" },
+    { name: "github",   url: "https://github.com/max397574" },
+    // { name: "x",        url: "https://x.com/username" },
+    // { name: "linkedin", url: "https://www.linkedin.com/in/username/" },
+    // { name: "mail",     url: "mailto:yourmail@gmail.com" },
   ],
   shareLinks: [
     { name: "whatsapp", url: "https://wa.me/?text=" },
