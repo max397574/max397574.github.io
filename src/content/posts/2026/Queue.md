@@ -76,6 +76,63 @@ For more (mostly) useful methods see
 
 ## Manual Implementation with Array
 
+For educational purposes we'll implement a queue ourselves. It uses an array
+(ewww, lifetimes needed) to implement a ring buffer which is used to implement
+the queue. It therefore has a fixed capacity and insert can fail.
+
+I wouldn't recommend actually using this and the only thing I can guarantee
+about it is, that it's not written by an LLM.
+
+```rust
+pub struct Queue<'a> {
+    buffer: &'a mut [i32],
+    len: usize,
+    head: usize,
+    tail: usize,
+}
+
+impl<'a> Queue<'a> {
+    /// Create a new queue using an existing buffer
+    pub fn new(buffer: &'a mut [i32]) -> Self {
+        Self {
+            buffer,
+            head: 0,
+            tail: 0,
+            len: 0,
+        }
+    }
+
+    /// Enqueue an item
+    /// Returns true on succes, false on error
+    pub fn enqueue(&mut self, item: i32) -> bool {
+        let capacity = self.buffer.len();
+        if self.len == capacity {
+            return false;
+        }
+        self.buffer[self.tail] = item;
+        // Wrap around
+        self.tail = (self.tail + 1) % capacity;
+        self.len += 1;
+        true
+    }
+
+    pub fn dequeue(&mut self) -> Option<i32> {
+        if self.len == 0 {
+            return None;
+        }
+        let item = self.buffer[self.head];
+        self.head = (self.head + 1) % self.buffer.len();
+        self.len -= 1;
+        Some(item)
+    }
+}
+```
+
+You could improve this by
+
+1. Making it for a generic type `T`
+2. Using a `Vec<T>` for storage to allow dynamic capacity (if that's wanted)
+
 # Use Cases
 
 Queues have some real world applications and also a lot of them in other
@@ -99,7 +156,34 @@ simple lock while pushing/popping.
 
 # Example Problems
 
+## Throwing Cards Away
+
+**Problem:** You have a deck of $n$ cards, $c_1, ..., c_n$. In each step you
+throw away the top card and put next card to the bottom until you just have a
+single card left. Which card will you have in your hand at the end?
+
+While there might be a formula or something to calculate this in constant time
+(seems like an interesting problem to think about) we can solve this in $O(n)$
+by simply simulating this with a queue.
+
+```rust
+let mut q = Queue::new(cards);
+while q.len() > 1 {
+    queue.dequeue();
+    queue.enqueue(queue.dequeue().unwrap());
+}
+let answer = queue.dequeue().unwrap();
+```
+
 # Variations
+
+These are some variations of the basic data structure. They're here if you want
+to research more for yourself on the topic. I might also at some point write a
+post about them.
+
+- Double-ended Queue (explained here)
+- Priority Queue
+- Monotonic Queue
 
 # References
 
