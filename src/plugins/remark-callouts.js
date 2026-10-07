@@ -23,6 +23,11 @@ export function remarkCallouts() {
           container: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500",
           titleColor: "text-emerald-900 dark:text-emerald-200",
         },
+        properties: {
+          title: "PROPERTIES",
+          container: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500",
+          titleColor: "text-emerald-900 dark:text-emerald-200",
+        },
         note: {
           title: "NOTE",
           container: "bg-blue-50 dark:bg-blue-950/40 border-blue-500",
@@ -35,6 +40,11 @@ export function remarkCallouts() {
         },
         tip: {
           title: "TIP",
+          container: "bg-sky-50 dark:bg-sky-950/40 border-sky-500",
+          titleColor: "text-sky-900 dark:text-sky-200",
+        },
+        example: {
+          title: "Example",
           container: "bg-sky-50 dark:bg-sky-950/40 border-sky-500",
           titleColor: "text-sky-900 dark:text-sky-200",
         },
