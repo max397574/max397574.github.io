@@ -1,7 +1,7 @@
 ---
-title: Queue Data Structure
+title: Daily DSA 01: Queue
 pubDatetime: 2026-10-07
-slug: daily-dsa-queue
+slug: daily-dsa-01-queue
 tags:
   - DSA
 description: A guide to the Queue data structure
@@ -175,6 +175,31 @@ while q.len() > 1 {
 let answer = queue.dequeue().unwrap();
 ```
 
+## "Fair" Scheduler
+
+**Problem:** You got a number of jobs $j_i$, each having a given duration. You
+have a "fair" [^3] scheduler: It gives each job one another a fixed amount of
+time $t$ to process. Which job finishes last?
+
+We can again easily simulate this with a queue. We just remove values from it,
+and readd them with reduced time if they haven't yet finished.
+
+```rust
+struct Job {
+    id: u32,
+    duration: u32,
+}
+let mut q = Queue::new(jobs);
+while q.len() > 1 {
+    let mut j = queue.dequeue();
+    if j.duration > t {
+        j.duration -= t;
+        queue.enqueue(j);
+    }
+}
+let answer = queue.dequeue().unwrap().id;
+```
+
 # Variations
 
 These are some variations of the basic data structure. They're here if you want
@@ -196,3 +221,7 @@ post about them.
 [^2]:
     For those interested: Implemented with a growable (sth like a `Vec`) ring
     buffer.
+
+[^3]:
+    What really is fair is quite a complicated topic. Would maybe be worth it's
+    own post at some point.
