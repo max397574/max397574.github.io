@@ -1,5 +1,5 @@
 ---
-title: Daily DSA 01: Queue
+title: "Daily DSA 01: Queue"
 pubDatetime: 2026-10-07
 slug: daily-dsa-01-queue
 tags:
