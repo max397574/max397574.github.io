@@ -1,5 +1,5 @@
 ---
-title: Daily DSA
+title: Daily DSA Introduction
 pubDatetime: 2026-10-06
 slug: daily-dsa-introduction
 featured: true
