@@ -1,6 +1,6 @@
 ---
 title: "Daily DSA 03: BFS"
-pubDatetime: 2026-11-08
+pubDatetime: 2026-10-09
 slug: daily-dsa-03-bfs
 tags:
   - DSA
