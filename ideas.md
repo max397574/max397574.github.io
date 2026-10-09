@@ -1,0 +1,15 @@
+- DSU
+- MST algorithms
+- DFS
+- Runtime Analysis formally
+- Search trees
+- (P)RNG
+- Bipartite graphs
+- Flow
+- Matchings
+- String stuff
+- Shortest path
+    - Dijkstra
+    - A star
+    - bellman ford
+    - ...
